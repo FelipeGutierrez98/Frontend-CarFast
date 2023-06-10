@@ -6,18 +6,19 @@ import { UserComponent } from './auth/user/user.component';
 
 
 const routes: Routes = [
-  {
-    /* path: 'getCar', component:CarbyidComponent */
-    path: 'getCar/:id',
-    component: CarbyidComponent,
-  },
-  {
-    path: '',
-    component: CarsComponent,
-  },
-  {
-    path:'user',component:UserComponent
-  }
+ {
+  path: 'auth', 
+  loadChildren:()=> import("./auth/auth.module").then((m)=>m.AuthModule)
+ },
+ {
+  path: 'dashboard', 
+  loadChildren:()=> import("./dashboard/dashboard.module").then((m)=>m.DashboardModule)
+ },
+ {
+  path: '',
+  redirectTo: 'dashboard',
+  pathMatch: 'full'
+ }
 ];
 
 @NgModule({
@@ -25,3 +26,16 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
+/* {
+   path: 'getCar', component:CarbyidComponent 
+  path: 'getCar/:id',
+  component: CarbyidComponent,
+},
+{
+  path: '',
+  component: CarsComponent,
+},
+{
+  path:'user',component:UserComponent
+} */
