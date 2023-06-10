@@ -1,0 +1,29 @@
+<!-- <p *ngIf="carsCargados">cargaron los usuarios</p> -->
+<!-- solo aparesca si ya cargaron los usuarios -->
+<div class="container ">
+  <div class="row cards-container">
+    <div
+      *ngFor="let carCargado of carsCargados"
+      class="col-sm-6 col-md-4 col-lg-3 "
+    >
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="https://picsum.photos/700/400?random"
+          alt="imagen aleatoria"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Marca: {{ carCargado.marca }}</h5>
+          <p class="card-text">Modelo: {{ carCargado.modelo }}</p>
+          <p class="card-text">Precio: {{ carCargado.precio }}</p>
+          <p class="card-text">Age: {{ carCargado.age }}</p>
+          <p class="card-text">Kilometraje: {{ carCargado.kilometraje }}</p>
+          <p class="card-text">Transmision: {{ carCargado.transmision }}</p>
+          <p class="card-text">Ciudad: {{ carCargado.ciudad }}</p>
+          <!-- <button type="button" (click)="getCar(carCargado._id)">VER</button> -->
+    <button type="button" routerLink="getCar/{{carCargado._id}}">VER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

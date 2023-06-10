@@ -1,0 +1,60 @@
+<div class="container text-center principal">
+  <div class="row">
+    <!--seccion MENU/LOGO/FORM 4 PARTES-->
+    <div class="col-sm-4" class="container">
+      <a href="/Login.html">
+      <div class="logo class= text-center">
+        <img src="../../../assets/img/logo 1_Mesa de trabajo 1.png" class="img-fluid "  >
+      </div></a>
+        <div class="bienvenido">
+          <h1>Login</h1>
+        </div>
+
+        <div class="cont-form">
+
+          <form action="" class="form" id="form" autocomplete="off" (ngSubmit)="login()" #loginForm="ngForm">
+            <p class="form-titulo"></p>
+            <div class="form-input myEmail">
+              <input type="email"  class="form-control"  id="email" placeholder="Correo electrónico">
+              <label for="email"></label>
+              <p class="mensajeError"></p>
+            </div>
+            <div class="form-input myPassword">
+              <input type="password"  class="form-control"  id="password" placeholder="Contraseña">
+              <label for="password"></label>
+              <p class="mensajeError"></p>
+            </div>
+            <button type="submit"  class="btn btn-outline-light" [disabled]="!loginForm.form.valid">
+              GET IN
+            </button>
+            <p>No tienes cuenta aun <a routerLink="/user/create">Registrate</a></p>
+          </form>
+        </div>
+      </div>
+      <div class="alt-login">
+        <h2> Iniciar sesion con:</h2>
+        <div>
+          <div class="secc-botones">
+            <button type="submit" class="btn btn-lg ">
+              <a href="https://www.google.com/"><i class="bi bi-google" alt="google"></i></a>
+
+            </button>
+
+            <button type="submit" class="btn btn-lg "><a href="https://www.facebook.com/">
+                <i class="bi bi-facebook"></i></a>
+            </button>
+            <button type="submit" class="btn btn-lg "><a href="https://www.facebook.com/">
+              <i class="bi bi-google" alt="google"></i></a>
+            </button>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="texto-foot">
+      <p>© 2017 - 2023 car-fast.com. All rights reserved
+      </p>
+    </div>
+  </div>

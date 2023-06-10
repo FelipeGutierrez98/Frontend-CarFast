@@ -1,0 +1,18 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  height: 100px;
+  background: linear-gradient(to right, #38085c, #960207);
+  background-size: cover;
+
+  color: white;
+}
+
+git init
+git add .
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/FelipeGutierrez98/Frontend-CarFast.git
+git push -u origin main
