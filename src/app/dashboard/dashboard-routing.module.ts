@@ -5,6 +5,7 @@ import { CarsComponent } from './pages/cars/cars.component';
 import { CarbyidComponent } from './pages/carbyid/carbyid.component';
 import { Notfound404Component } from './pages/notfound404/notfound404.component';
 import { authGuard } from '../guards/auth.guard';
+import { VenderCarroComponent } from './pages/vender-carro/vender-carro.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,11 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'carros', component: CarsComponent },
+      {
+        path: 'vender-carro',
+        canActivate: [authGuard],
+        component: VenderCarroComponent,
+      },
       {
         path: 'carros/:id',
         canActivate: [authGuard],
