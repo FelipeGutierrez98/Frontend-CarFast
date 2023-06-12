@@ -15,11 +15,11 @@ export class ServicesService {
 
   constructor(private http: HttpClient) {}
 
-  login(email: string, password: string): void {
+  login(formDatas:any): void {
     const loginUrl = `${this.ApiUrl}/login`;
     const formData = {
-      email: email,
-      password: password,
+      email: formDatas.email,
+      password: formDatas.password,
     };
     this.http
       .post(loginUrl, formData, { headers: this.getAuthHeaders() })
@@ -52,7 +52,7 @@ export class ServicesService {
   }
 
   create(formData: any): void {
-    console.log(formData, 'THIS IS FORMDATA');
+    console.log(formData.email, 'THIS IS FORMDATA');
 
     const createUrl = `${this.ApiUrl}`;
 
@@ -66,15 +66,15 @@ export class ServicesService {
     );
   }
 
-  updateInventado() {
-    return {
-      userName: 'tester',
-      lastname: 'uno',
-      cellphone: '1234',
-      email: 'tester@uno.com',
-      password: '123',
-    };
-  }
+  // updateInventado() {
+  //   return {
+  //     userName: 'tester',
+  //     lastname: 'uno',
+  //     cellphone: '1234',
+  //     email: 'tester@uno.com',
+  //     password: '123',
+  //   };
+  // }
 
   getUser() {
     const getUrl = `${this.ApiUrl}/${this.userEmail}`;

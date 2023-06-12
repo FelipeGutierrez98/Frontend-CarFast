@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ServicesService } from 'src/app/services/services.service';
 
 
@@ -10,14 +11,26 @@ import { ServicesService } from 'src/app/services/services.service';
 })
 export class LoginComponent {
   
-  email:string ='';
-  password:string ='';
+  myForm!: FormGroup;
+  emailLocalStorage:string="";
+  // userLogin:any;
+  email:string="";
+  password:string="";
   
-  constructor(private servicesServices:ServicesService){}
+  constructor(private servicesServices:ServicesService, private fb: FormBuilder){
+
+    this.myForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
+
+  }
+  
   login(){
-   this.servicesServices.login(this.email,this.password);
-   console.log('email',this.email);
-   console.log('password',this.password);
+   this.servicesServices.login(this.myForm.value);
+  localStorage.setItem('email', this.myForm.value.email)
+   console.log('email',this.myForm.value.email);
+   console.log('password',this.myForm.value.password);
    
   }
 }

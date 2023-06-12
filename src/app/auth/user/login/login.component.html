@@ -13,18 +13,25 @@
 
       <div class="cont-form">
 
-        <form action="" class="form" id="form" autocomplete="off" (ngSubmit)="login()" #loginForm="ngForm">
+        <form [formGroup]="myForm" action="" class="form" id="form" autocomplete="off" (ngSubmit)="login()" #loginForm="ngForm">
           <p class="form-titulo"></p>
+
           <div class="form-input myEmail">
-            <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
+            <input formControlName="email" type="email" class="form-control" id="email"
+              placeholder="Correo electrónico">
             <label for="email"></label>
-            <p class="mensajeError"></p>
+            <p class="mensajeError" *ngIf="myForm.controls['email'].errors && myForm.controls['email'].touched">
+              El campo Correo es obligatorio</p>
           </div>
+
           <div class="form-input myPassword">
-            <input type="password" class="form-control" id="password" placeholder="Contraseña">
+            <input formControlName="password" type="password" class="form-control" id="password"
+              placeholder="Contraseña">
             <label for="password"></label>
-            <p class="mensajeError"></p>
+            <p class="mensajeError" *ngIf="myForm.controls['password'].errors && myForm.controls['password'].touched">
+              El campo Contraseña es obligatorio</p>
           </div>
+          
           <button type="submit" class="btn btn-outline-light" [disabled]="!loginForm.form.valid">
             GET IN
           </button>
