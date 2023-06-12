@@ -10,7 +10,9 @@ export class ProfileComponent {
  
   selectFile!:File;
   userProfile!:any;
+  
   editValue:boolean=false;
+  email=localStorage.getItem('email')
 
   editProfile(){
     this.editValue=true;
@@ -23,7 +25,7 @@ export class ProfileComponent {
   }
 
   getUser(){//movimos la funcionalidad 
-    this.servicesServices.getUser()
+    this.servicesServices.getUser(this.email)
     .subscribe(
       (response:any) => {
         console.log("response: ",response);
