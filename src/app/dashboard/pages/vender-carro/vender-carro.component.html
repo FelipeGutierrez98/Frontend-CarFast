@@ -1,0 +1,79 @@
+<div class="container text-center principal">
+    <div class="row">
+      <!--seccion MENU/LOGO/FORM 4 PARTES-->
+      <div class="col-sm-4" class="container">
+        <a href="/Login.html">
+          <div class="logo class= text-center">
+            <img src="../../../assets/img/logo 1_Mesa de trabajo 1.png" class="img-fluid ">
+          </div>
+        </a>
+        <div class="bienvenido">
+          <h1>Vende tu carro !!</h1>
+        </div>
+  
+        <div class="cont-form">
+  
+          <form [formGroup]="myForm" action="" class="form" id="form" autocomplete="off" (ngSubmit)="createCar()"
+            #createForm="ngForm">
+            <p class="form-titulo"></p>
+  
+            <div class="form-input myNombre">
+              <input type="text" formControlName="marca" class="form-control" id="marca" placeholder="Marca">
+              <label for="marca"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['marca'].errors && myForm.controls['marca'].touched">
+                El campo Marca es obligatorio</p>
+            </div>
+  
+            <div class="form-input myApellido">
+              <input formControlName="modelo" type="text" class="form-control" id="modelo" placeholder="Modelo">
+              <label for="modelo"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['modelo'].errors && myForm.controls['modelo'].touched">
+                El campo Modelo es obligatorio</p>
+            </div>
+  
+            <div class="form-input myEmail">
+              <input formControlName="precio"type="text" class="form-control" id="precio"
+                placeholder="Precio">
+              <label for="precio"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['precio'].errors && myForm.controls['precio'].touched">
+                El campo Precio es obligatorio</p>
+            </div>
+  
+            <div class="form-input myTelefono">
+              <input formControlName="age" type="text" class="form-control" id="age" placeholder="Age">
+              <label for="age"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['age'].errors && myForm.controls['age'].touched">
+                El campo Age es obligatorio</p>
+            </div>
+  
+            <div class="form-input myPassword">
+              <input formControlName="transmision" type="text" class="form-control" id="transmision"
+                placeholder="Transmision">
+              <label for="transmision"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['transmision'].errors && myForm.controls['transmision'].touched">
+                El campo Transmision es obligatorio</p>
+            </div>
+            <div class="form-input myPassword">
+              <input formControlName="ciudad" type="text" class="form-control" id="ciudad"
+                placeholder="Ciudad">
+              <label for="ciudad"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['ciudad'].errors && myForm.controls['ciudad'].touched">
+                El campo Ciudad es obligatorio</p>
+            </div>
+            <div class="form-input myPassword">
+              <input formControlName="kilometraje" type="text" class="form-control" id="kilometraje"
+                placeholder="Kilometraje">
+              <label for="kilometraje"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['kilometraje'].errors && myForm.controls['kilometraje'].touched">
+                El campo Kilometraje es obligatorio</p>
+            </div>
+  
+            <!-- <div class="form-input myRepeatPassword">
+              <input type="password" class="form-control" id="repeatPassword" placeholder="Repetir contraseña">
+              <label for="repeatPassword"> </label>
+              <p class="mensajeError"></p>
+            </div> -->
+            <button type="submit " class="boton btn btn-outline-light">Enviar</button>
+          </form>
+        </div>
+      </div>
