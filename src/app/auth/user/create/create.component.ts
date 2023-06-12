@@ -19,8 +19,8 @@ export class CreateComponent {
     private servicesServices: ServicesService,
     private fb: FormBuilder
   ) {
-    this.datosUsuarios = this.servicesServices.updateInventado();
-    console.log(this.datosUsuarios, 'datos inventados');
+   /*  this.datosUsuarios = this.servicesServices.updateInventado();
+    console.log(this.datosUsuarios, 'datos inventados'); */
 
     this.myForm = this.fb.group({
       userName: ['', Validators.required],
