@@ -77,13 +77,13 @@ export class ServicesService {
     };
   }
 
-  getUser() {
-    const getUrl = `${this.ApiUrl}/${this.userEmail}`;
+  getUser(email:string | null) {
+    const getUrl = `${this.ApiUrl}/${email}`;
     return this.http.get(getUrl);
   }
 
   updateUser(body: any) {
-    const updateUrl = `${this.ApiUrl}/update/${body._id}`;
+    const updateUrl = `${this.ApiUrl}${body._id}`;
     const fromData = body;
     console.log('usuario actualizado', fromData, updateUrl);
     this.http.put(updateUrl, fromData).subscribe(

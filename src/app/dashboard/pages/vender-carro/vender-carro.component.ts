@@ -24,6 +24,7 @@ export class VenderCarroComponent {
       transmision: ['', Validators.required],
       ciudad: ['', Validators.required],
       kilometraje: ['', Validators.required],
+      
     });
   }
 
