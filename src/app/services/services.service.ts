@@ -13,6 +13,7 @@ export class ServicesService {
   private userEmail!: string;
   private userData!: string;
   private ApiUrl = 'http://localhost:9000/api/users';
+  private CarUrl = 'http://localhost:9000/api/cars'
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -51,6 +52,7 @@ export class ServicesService {
   }
 
   create(formData: any): void {
+  
     console.log(formData, 'THIS IS FORMDATA');
 
     const createUrl = `${this.ApiUrl}`;
@@ -100,26 +102,9 @@ export class ServicesService {
   }
   //-----------------------------------------------------------//
 
-  createCar(
-    marca: string,
-    modelo: string,
-    precio: string,
-    age: string,
-    kilometraje: number,
-    transmision: string,
-    ciudad: string
-  ): void {
-    const createUrl = `${this.ApiUrl}/create/cars`;
-    const formDataCar = {
-      marca: marca,
-      modelo: modelo,
-      precio: precio,
-      age: age,
-      kilometraje: kilometraje,
-      transmision: transmision,
-      ciudad: ciudad,
-    };
-    this.http.post(createUrl, formDataCar).subscribe(
+  createCar(formData: any): void {
+    const createUrl = `${this.CarUrl}`;
+    this.http.post(createUrl, formData).subscribe(
       (response: any) => {
         console.log('Registro de carro exitoso. ', response);
       },

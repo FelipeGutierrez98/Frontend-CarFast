@@ -12,4 +12,10 @@ export class HeadersComponent {
     this.isLogged = this.service.getToken();
     console.log(this.isLogged, 'THIS IS LOGGED');
   }
+  salir(){
+    localStorage.removeItem('token')
+    location.reload();
+  }
 }
+
+
