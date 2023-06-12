@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { Notfound404Component } from './pages/notfound404/notfound404.component';
+import { VenderCarroComponent } from './pages/vender-carro/vender-carro.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { Notfound404Component } from './pages/notfound404/notfound404.component'
     FooterComponent,
     HomeComponent,
     Notfound404Component,
+    VenderCarroComponent,
   ],
   imports: [CommonModule, DashboardRoutingModule],
   exports: [CarsComponent, HeadersComponent, CarbyidComponent, FooterComponent],

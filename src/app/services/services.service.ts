@@ -4,6 +4,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,34 +14,32 @@ export class ServicesService {
   private userData!: string;
   private ApiUrl = 'http://localhost:9000/api/users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
-  login(email: string, password: string): void {
+  login(formData: any): void {
     const loginUrl = `${this.ApiUrl}/login`;
-    const formData = {
-      email: email,
-      password: password,
-    };
-    this.http
-      .post(loginUrl, formData, { headers: this.getAuthHeaders() })
-      .subscribe(
-        (response: any) => {
-          // this.authToken = response.accessToken;
-          this.saveToken(response.token);
-          this.userEmail = formData.email;
-        },
-        (error) => {
-          if (error instanceof HttpErrorResponse) {
-            if (error.error instanceof ErrorEvent) {
-              console.log('Error: ', error.error.message);
-            } else {
-              console.error(
-                `codigo de error ${error.status}` + `mensaje: ${error.error}`
-              );
-            }
+
+    this.http.post(loginUrl, formData).subscribe(
+      (response: any) => {
+        console.log(response, 'THIS IS THE RESPONSE');
+        this.saveToken(response.token);
+        this.router.navigate(['']);
+        // this.authToken = response.accessToken;
+        // this.saveToken(response.token);
+        // this.userEmail = formData.email;
+      },
+      (error) => {
+        if (error instanceof HttpErrorResponse) {
+          if (error.error instanceof ErrorEvent) {
+            console.log('Error: ', error.error.message);
+          } else {
+            console.error(
+              `codigo de error ${error.status}` + `mensaje: ${error.error}`
+            );
           }
         }
-      );
+      }
+    );
   }
 
   saveToken(token: string): void {
