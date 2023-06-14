@@ -11,11 +11,9 @@
     width: 10vh;
     height: auto;
   }
+ 
   .navegacion{
-    background-image: url('../../../../assets/img/header-cortada.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size:cover;
+    background-color: blue;
     height: 20vh;
   }
  

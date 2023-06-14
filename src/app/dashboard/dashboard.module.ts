@@ -10,6 +10,8 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { Notfound404Component } from './pages/notfound404/notfound404.component';
 import { VenderCarroComponent } from './pages/vender-carro/vender-carro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     Notfound404Component,
     VenderCarroComponent,
+    ContactoComponent,
+    AboutComponent,
   ],
   imports: [CommonModule, DashboardRoutingModule,FormsModule, ReactiveFormsModule],
   exports: [CarsComponent, HeadersComponent, CarbyidComponent, FooterComponent],

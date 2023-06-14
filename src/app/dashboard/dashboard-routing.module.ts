@@ -6,6 +6,8 @@ import { CarbyidComponent } from './pages/carbyid/carbyid.component';
 import { Notfound404Component } from './pages/notfound404/notfound404.component';
 import { authGuard } from '../guards/auth.guard';
 import { VenderCarroComponent } from './pages/vender-carro/vender-carro.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { AboutComponent } from './pages/about/about.component';
 
 const routes: Routes = [
   {
@@ -13,6 +15,8 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'carros', component: CarsComponent },
+      { path: 'contacto',component:ContactoComponent}, ///////////////////////////////////////////
+      { path: 'about',component:AboutComponent}, ///////////////////////////////////////////
       {
         path: 'vender-carro',
         canActivate: [authGuard],

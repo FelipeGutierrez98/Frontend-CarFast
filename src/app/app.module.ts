@@ -10,8 +10,11 @@ import { RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule } from '@angular/forms';
 
+
+
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ],
   imports: [
     BrowserModule,
     AppRoutingModule,
