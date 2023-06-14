@@ -1,11 +1,58 @@
+*{
+    font-weight: 700;
+}
+.fondo{
+    padding-top: 18%;
+    background-color: #EBEBEB;
+    align-items: center;   
+    
+}
+
+h5{
+    font-family: 'Fira Sans', sans-serif; 
+    font-size: 30pt;
+
+}
+
+.card{
+    
+    height: auto;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10%;  
+} 
+
+.card-title{
+    margin-bottom: 5%;
+    margin-top: 10%;
+}
 
 .cards-container{
     gap: 20px;
+    display: flex;
+    padding-top: 10%;
+    justify-content: space-evenly;
 }
+
 .card-body{
-    color: white;
-    background: linear-gradient(to right,#38085c , #960207) !important ; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: rgb(255, 255, 255);
+    /* background: linear-gradient(to right,#38085c , #960207) !important ; W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
     opacity: 0.8;
+}
+
+.card-text{
+    margin-top: 3%;
+    font-size: 3vh;
+    
+}
+
+.button{
+    width: 100%;
+    margin-top: 3%;
+    margin-bottom: 2%;
 }
 
 /* .container{
