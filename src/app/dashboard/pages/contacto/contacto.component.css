@@ -1,21 +1,50 @@
+
 .contacto{
- display: flex;
- justify-content: center;
- flex-direction: column;
- 
- align-items: center;
- margin-bottom: 30px;
-}
-.formulario-contacto{
-    width: 50vw;
-    box-shadow: 0px 0px 12px;
-    padding: 40px;
-    
-}
-textarea{
-    height: 200px;
-}
-button{
     display: flex;
     justify-content: center;
-}
+    flex-direction: column;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    align-items: center;
+    padding-bottom: 5%;
+    padding-top: 0.1%;   
+   }
+
+   .formulario-contacto{
+       width: 55vw;
+       box-shadow: 0px 0px 12px;
+       padding: 40px;
+       background-color: #cacdd8;
+       border-radius: .7%;
+       border: none ;
+   
+   }
+
+   textarea{
+       height: 200px;
+   }
+   button{
+       display: flex;
+       justify-content: center;
+   }
+
+   h1{
+    font-family: 'Fira Sans', sans-serif;
+    /* font-family: 'PT Serif', serif; // Fuente normal */
+    font-size: 5vh;
+    font-weight: 800;
+   }
+
+   h3{ 
+    font-family: 'Fira Sans', sans-serif;
+    /* font-family: 'PT Serif', serif; // Fuente normal */
+    font-size: 3vh;
+    font-weight: 500;
+   }
+
+   .form-label{
+    padding-top: 2%;
+    font-family: 'Fira Sans', sans-serif;
+    font-weight: 500;
+    margin-bottom: 0.1%;
+   }
+   

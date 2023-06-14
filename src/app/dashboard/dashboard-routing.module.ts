@@ -15,8 +15,8 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'carros', component: CarsComponent },
-      { path: 'contacto',component:ContactoComponent}, ///////////////////////////////////////////
-      { path: 'about',component:AboutComponent}, ///////////////////////////////////////////
+      { path: 'contacto',component:ContactoComponent}, 
+      { path: 'about',component:AboutComponent}, 
       {
         path: 'vender-carro',
         canActivate: [authGuard],
@@ -27,7 +27,7 @@ const routes: Routes = [
         canActivate: [authGuard],
         component: CarbyidComponent,
       },
-      { path: '', redirectTo: 'carros', pathMatch: 'full' },
+      { path: '', redirectTo: 'carros', pathMatch: 'full' },//principal
       { path: '**', component: Notfound404Component },
     ],
   },

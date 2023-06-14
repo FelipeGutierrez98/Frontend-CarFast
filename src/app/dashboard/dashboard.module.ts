@@ -12,6 +12,7 @@ import { VenderCarroComponent } from './pages/vender-carro/vender-carro.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { AboutComponent } from './pages/about/about.component';
+import { BannerComponent } from './components/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AboutComponent } from './pages/about/about.component';
     VenderCarroComponent,
     ContactoComponent,
     AboutComponent,
+    BannerComponent,
   ],
   imports: [CommonModule, DashboardRoutingModule,FormsModule, ReactiveFormsModule],
   exports: [CarsComponent, HeadersComponent, CarbyidComponent, FooterComponent],
