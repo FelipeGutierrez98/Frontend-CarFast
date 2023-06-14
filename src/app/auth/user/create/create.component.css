@@ -1,11 +1,28 @@
+/* {
+    font-family: 'Fira Sans', sans-serif; //Fuente Titulos
+    font-family: 'PT Serif', serif; // Fuente normal
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%); //Fondo gradiente
+    background-color: #cacdd8; //Gris Carfast
 
+
+} */
+
+.create{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    align-items: center;
+    padding-bottom: 5%;
+    padding-top: 5%;   
+   }
 .principal{
     border: 1px solid black;
     margin-top: 20px;
     border: none;
     box-shadow: 0px 0px 12px;
     width: 500px;
-    background: linear-gradient(to right,#38085c41 , #9602073e) !important ;
+    background-color: #cacdd8;
     margin-bottom: 20px;
     padding-bottom: 10px;
   
@@ -22,9 +39,19 @@
 
 
 h1{
-    color: rgb(255, 255, 255);
+    font-family: 'Fira Sans', sans-serif; 
+    font-size: 1hv;
+    font-weight: 800;
+    color: rgb(0, 0, 0);
     
 }
 .form-termsAndConditions{
-    color: white;
+    color: rgb(0, 0, 0);
 }
+
+.bienvenido{
+    font-family: 'Fira Sans', sans-serif;
+    /* font-family: 'PT Serif', serif; // Fuente normal */
+    font-size: 5vh;
+    font-weight: 800;
+   }

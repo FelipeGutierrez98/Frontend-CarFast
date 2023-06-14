@@ -4,14 +4,19 @@
     <li>{{ userProfile.email }}</li>
   </ul>
   <br />
-  <button (click)="editProfile()">Editar perfil</button>
+  <button (click)="editProfile()" (click)="getUser()">Editar perfil</button>
 </div>
 
 <ng-template #editInfo>
   <form>
     <div>
       <label for="">Usuario</label><br />
-      <input type="text" name="name" [(ngModel)]="userProfile.username" />
+      <input type="text" name="name" [(ngModel)]="userProfile.userName" />
+    </div>
+
+    <div>
+      <label for="">Apellido</label><br />
+      <input type="email" name="apellido" [(ngModel)]="userProfile.lastname" />
     </div>
 
     <div>
@@ -20,6 +25,11 @@
     </div>
 
     <div>
+      <label for="">Celular</label><br />
+      <input type="text" name="celular" [(ngModel)]="userProfile.cellphone" />
+    </div>
+
+    <!-- <div>
       <label for="">Contraseña</label><br />
       <input
         type="password"
@@ -27,7 +37,7 @@
         placeholder="Cambiar contraseña"
         [(ngModel)]="userProfile.password"
       />
-    </div>
+    </div> -->
     <div>
       <label for="">Nueva imagen</label><br />
       <input type="file" name="picture" (change)="onFileSelected($event)" />

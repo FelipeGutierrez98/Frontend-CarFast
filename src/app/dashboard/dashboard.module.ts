@@ -8,6 +8,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { Notfound404Component } from './pages/notfound404/notfound404.component';
+import { VenderCarroComponent } from './pages/vender-carro/vender-carro.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BannerComponent } from './components/banner/banner.component';
+import { ContactoComponent } from './pages/contacto/contacto.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,8 +23,12 @@ import { Notfound404Component } from './pages/notfound404/notfound404.component'
     FooterComponent,
     HomeComponent,
     Notfound404Component,
+    VenderCarroComponent,
+    BannerComponent,
+    ContactoComponent,
+    AboutComponent,
   ],
-  imports: [CommonModule, DashboardRoutingModule],
+  imports: [CommonModule, DashboardRoutingModule,FormsModule, ReactiveFormsModule],
   exports: [CarsComponent, HeadersComponent, CarbyidComponent, FooterComponent],
 })
 export class DashboardModule {}

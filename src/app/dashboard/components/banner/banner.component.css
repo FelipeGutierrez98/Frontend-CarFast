@@ -1,0 +1,22 @@
+.banner{
+    /* display: flex; */
+    height: 300px;
+    position: center;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    justify-content: center;
+    text-align: center;
+}
+.img{
+    padding-top: 9%;
+    text-align: center;
+    
+}
+
+.ban-grp{
+   padding-bottom: 0%;
+
+}
+
+.txt-banner{
+
+}
