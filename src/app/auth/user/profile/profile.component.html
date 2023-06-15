@@ -1,13 +1,18 @@
-<div *ngIf="!editValue; else editInfo">
-  <ul>
-    <ng-container *ngIf="userProfile">
-      <li>Nombre: {{ userProfile.userName }}&nbsp;{{userProfile.lastname}} </li>
-      <li>Correo: {{ userProfile.email }}</li>
-      <li>Celular: {{ userProfile.cellphone }}</li>
-    </ng-container>
-  </ul>
-  <br />
-  <button (click)="editProfile()">Editar perfil</button>
+<div class="container text-center principal">
+  <div class="logo class= text-center">
+    <img src="../../../../assets/img/5158652.png" class="img-fluid ">
+</div>
+  <div *ngIf="!editValue; else editInfo" >
+    <ul>
+      <ng-container *ngIf="userProfile">
+        <li class="card-text">Nombre: {{ userProfile.userName }}&nbsp;{{userProfile.lastname}} </li>
+        <li class="card-text">Correo: {{ userProfile.email }}</li>
+        <li class="card-text">Celular: {{ userProfile.cellphone }}</li>
+      </ng-container>
+    </ul>
+    <br />
+    <button type="submit" class="btn btn btn-primary mb-3" (click)="editProfile()">Editar perfil</button>
+  </div>
 </div>
 
 
@@ -46,7 +51,7 @@
           El campo Celular es obligatorio</p>
       </div>
 
-      <button type="submit " class="boton btn btn-outline-light">Actualizar</button>
+      <button type="submit" class="btn btn btn-primary mb-3">Actualizar</button>
     </form>
   </div>
   <!-- <form>
