@@ -1,0 +1,41 @@
+<div class="color">
+
+  <div class="container principal">
+    <div *ngIf="carCargado" class="card">
+            <h5 class="card-title">Marca: {{carCargado.marca}}</h5>
+            <p class="card-text">Modelo: {{carCargado.modelo}} </p>
+            <p class="card-text">Precio: {{carCargado.precio}}</p>
+            <p class="card-text">Age: {{carCargado.age}}</p>
+            <p class="card-text">Kilometraje: {{carCargado.kilometraje}}</p>
+            <p class="card-text">Transmision: {{carCargado.transmision}} </p>
+            <p class="card-text">Ciudad: {{carCargado.ciudad }}</p>
+      <div class="botones">
+        <button class="btn btn btn-primary bot" type="submit" >Preguntar</button>
+        <button class="btn btn btn-success bot" type="submit" ><i class="bi bi-whatsapp" ></i>WhatsApp</button>
+      </div>    
+    </div>
+    <div class="container-img">
+      <img class="card-img-top" src="../../../../assets/img/spark.png" alt="imagen aleatoria" />
+    </div>
+  </div>
+  <div class="container-carros">
+    <div class="segunda">
+     <div class="descripcion">
+       <h1>Descripcion</h1>
+       <p>El vendedor no incluyo descripcion </p>
+     </div> 
+      <div class="contacto">
+        <h2>Contacta al vendedor ?</h2>
+        <form class="row g-3">
+          <div class="col-auto">
+            <input type="password" class="form-control" id="inputPassword2" placeholder="Tu pregunta.....">
+          </div>
+          <div class="col-auto">
+            <button type="submit" class="btn btn btn-primary mb-3">Preguntar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+

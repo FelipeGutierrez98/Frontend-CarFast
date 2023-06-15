@@ -1,0 +1,25 @@
+.principal {
+  display: flex;
+  flex-direction: column;
+  width: 30vh;
+  margin: auto;
+  border: 1px solid black;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  box-shadow: 0 0 12px;
+  background-color: #9d9090;
+  border: none;
+  margin-bottom: 20px;
+  background: linear-gradient(to right, #38085c41, #9602073e) !important ;
+  color: white;
+}
+.botones {
+  width: 100%;
+}
+a {
+  color: white;
+}

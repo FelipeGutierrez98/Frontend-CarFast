@@ -1,0 +1,82 @@
+<div class="create">
+  <div class="container text-center principal">
+    <div class="row">
+      <!--seccion MENU/LOGO/FORM 4 PARTES-->
+      <div class="col-sm-4" class="container">
+          <div class="logo class= text-center">
+            <img src="../../../../assets/img/logo_2_Mesa_de_trabajo_1.png" class="img-fluid ">
+          </div>
+        <div class="bienvenido">
+          <h1>Regístrate</h1>
+        </div>
+
+        <div class="cont-form">
+
+          <form [formGroup]="myForm" action="" class="form" id="form" autocomplete="off" (ngSubmit)="createUser()"
+            #createForm="ngForm">
+            <p class="form-titulo"></p>
+
+            <div class="form-input myNombre">
+              <input type="text" formControlName="userName" class="form-control" id="myname" placeholder="Nombre">
+              <label for="myname"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['userName'].errors && myForm.controls['userName'].touched">
+                El campo Nombre es obligatorio</p>
+            </div>
+
+            <div class="form-input myApellido">
+              <input formControlName="lastname" type="text" class="form-control" id="surname" placeholder="Apellidos">
+              <label for="surname"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['lastname'].errors && myForm.controls['lastname'].touched">
+                El campo Apellido es obligatorio</p>
+            </div>
+
+            <div class="form-input myEmail">
+              <input formControlName="email" type="email" class="form-control" id="email"
+                placeholder="Correo electrónico">
+              <label for="email"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['email'].errors && myForm.controls['email'].touched">
+                El campo Correo es obligatorio</p>
+            </div>
+
+            <div class="form-input myTelefono">
+              <input formControlName="cellphone" type="text" class="form-control" id="mobile" placeholder="Celular">
+              <label for="mobile"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['cellphone'].errors && myForm.controls['cellphone'].touched">
+                El campo Celular es obligatorio</p>
+            </div>
+
+            <div class="form-input myPassword">
+              <input formControlName="password" type="password" class="form-control" id="password"
+                placeholder="Contraseña">
+              <label for="password"></label>
+              <p class="mensajeError" *ngIf="myForm.controls['password'].errors && myForm.controls['password'].touched">
+                El campo Contraseña es obligatorio</p>
+            </div>
+
+            <!-- <div class="form-input myRepeatPassword">
+              <input type="password" class="form-control" id="repeatPassword" placeholder="Repetir contraseña">
+              <label for="repeatPassword"> </label>
+              <p class="mensajeError"></p>
+            </div> -->
+
+            <div class="form-termsAndConditions myTermsAndConditions container">
+              <input type="checkbox" class="form-check-input" id="termsAndConditions">
+              <label for="termsAndConditions">He leído y acepto los </label>
+              <a href="#">Términos y Condiciones</a>
+              <p class="mensajeError"></p>
+            </div>
+            <div class="form-termsAndConditions myTermsAndConditions container">
+              <input type="checkbox" class="form-check-input" id="termsAndConditions">
+              <label for="termsAndConditions">He leído, entiendo y autorizo el tratamiento de mis datos personales de
+                acuerdo con la </label>
+              <a href="#">Política de Tratamiento de Datos de Carroya y su Política de Datos de Navegación/Cookies de
+                Carroya.com</a>
+              <p class="mensajeError"></p>
+            </div>
+
+            <button type="submit " class="boton btn btn-outline-light">Enviar</button>
+          </form>
+        </div>
+    </div>
+    
+</div>
