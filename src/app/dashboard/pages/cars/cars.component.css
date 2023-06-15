@@ -5,12 +5,10 @@
     padding-top: 18%;
     background-color: #EBEBEB;
     align-items: center;   
-    
 }
 
-h5{
+h5 h3{
     font-family: 'Fira Sans', sans-serif; 
-    font-size: 30pt;
 
 }
 
@@ -20,13 +18,16 @@ h5{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 20px; 
+    margin-bottom:  3vw; 
+    
 } 
 
 .card-title{
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 5%;
     margin-top: 10%;
-    font-size: 5vh;
+    font-size: 4vw;
 }
 
 .cards-container{
@@ -41,16 +42,20 @@ h5{
 
 .card-body{
     color: rgb(0, 0, 0);
-    
     background-color: #EBEBEB;
     opacity: 0.8;
 }
 
 .card-text{
     margin-top: 1%;
-    font-size: 3vh;
-    
+    font-size: 2vw;   
 }
+.marca-modelo-txt{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
 
 .button{
     width: 100%;
@@ -98,60 +103,49 @@ h5{
 }
 
  
-@media screen and  (max-width:375px) {
+@media screen and  (max-width:390px) {
        
     .card{
         
         height: auto;
-        width: 300px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-bottom: 20px; 
+        margin-bottom: 20%; 
     } 
-        .cards-container{
-            display: flex;
-            justify-content: center;
-            align-items: center; 
-            display:grid;
-            grid-template-columns:repeat(1 ,1fr);
-            
-        }
+    .cards-container{
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        display:grid;
+        grid-template-columns:repeat(1 ,1fr);            
     }
+    .fondo{
+        padding-top: 18%;
+        background-color: #EBEBEB;
+        background: none !important;
+        align-items: center;   
+    }
+    .card{
     
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* margin-bottom:  6vw;  */
+        
+    } 
+    
+    .card-title{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 1%;
+        margin-top: 5%;
+        font-size: 8vw;
+    }
+    .card-text{
+        margin-top: 3%;
+        font-size: 4vw;   
+    }
 
-/* .container{
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    text-align: center;
-    margin: 0px 30px 0 30px;
 }
-.title{
-    display: flex;
-    justify-content: center;
-    color: blue;
-    border-bottom: 1px solid blue;
-}
-.title2{
-    color: blue;
-    margin-top: 15px;
-    margin-left: 50px;
-}
-.card{
-    margin-top: 20px;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 350px;
-    width: 400px;
-    border: 1px solid rgb(29, 99, 136);
-    box-shadow: 0px 0px 10px blue;
-    background-color: rgb(148, 180, 195);
-}
-.img{
-    height: 200px;
-    width: 200px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-} */

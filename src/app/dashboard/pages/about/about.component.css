@@ -1,4 +1,9 @@
-.about-us{
+*{
+    font-family: 'Fira Sans', sans-serif; 
+    /* font-family: 'PT Serif', serif; */
+
+}
+ç.about-us{
     background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
     padding-top: 3%;
 }
