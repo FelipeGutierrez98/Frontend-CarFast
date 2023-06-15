@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
@@ -7,15 +8,14 @@ import { ServicesService } from 'src/app/services/services.service';
   styleUrls: ['./headers.component.css'],
 })
 export class HeadersComponent {
-  isLogged: any;
+  isLogged!: string | null;
   constructor(private service: ServicesService) {
-    this.isLogged = this.service.getToken();
-    console.log(this.isLogged, 'THIS IS LOGGED');
+    this.service.isUserLogged$.subscribe((token) => {
+      this.isLogged = token;
+    });
   }
-  salir(){
-    localStorage.removeItem('token')
+  salir() {
+    localStorage.removeItem('token');
     location.reload();
   }
 }
-
-

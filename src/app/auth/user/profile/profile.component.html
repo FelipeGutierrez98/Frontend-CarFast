@@ -1,14 +1,60 @@
-<div *ngIf="!editValue; else editInfo">
-  <ul>
-    <li>{{ userProfile.username }}</li>
-    <li>{{ userProfile.email }}</li>
-  </ul>
-  <br />
-  <button (click)="editProfile()" (click)="getUser()">Editar perfil</button>
+<div class="container text-center principal">
+  <div class="logo class= text-center">
+    <img src="../../../../assets/img/5158652.png" class="img-fluid ">
+</div>
+  <div *ngIf="!editValue; else editInfo" >
+    <ul>
+      <ng-container *ngIf="userProfile">
+        <li class="card-text">Nombre: {{ userProfile.userName }}&nbsp;{{userProfile.lastname}} </li>
+        <li class="card-text">Correo: {{ userProfile.email }}</li>
+        <li class="card-text">Celular: {{ userProfile.cellphone }}</li>
+      </ng-container>
+    </ul>
+    <br />
+    <button type="submit" class="btn btn btn-primary mb-3" (click)="editProfile()">Editar perfil</button>
+  </div>
 </div>
 
+
 <ng-template #editInfo>
-  <form>
+  <div class="cont-form">
+
+    <form [formGroup]="myForm" action="" class="form" id="form" autocomplete="off" (ngSubmit)="updateProfile()"
+      #createForm="ngForm">
+      <p class="form-titulo"></p>
+
+      <div class="form-input myNombre">
+        <input type="text" formControlName="userName" class="form-control" id="myname" placeholder="Nombre">
+        <label for="myname"></label>
+        <p class="mensajeError" *ngIf="myForm.controls['userName'].errors && myForm.controls['userName'].touched">
+          El campo Nombre es obligatorio</p>
+      </div>
+
+      <div class="form-input myApellido">
+        <input formControlName="lastname" type="text" class="form-control" id="surname" placeholder="Apellidos">
+        <label for="surname"></label>
+        <p class="mensajeError" *ngIf="myForm.controls['lastname'].errors && myForm.controls['lastname'].touched">
+          El campo Apellido es obligatorio</p>
+      </div>
+
+      <div class="form-input myEmail">
+        <input formControlName="email" type="email" class="form-control" id="email" placeholder="Correo electrónico">
+        <label for="email"></label>
+        <p class="mensajeError" *ngIf="myForm.controls['email'].errors && myForm.controls['email'].touched">
+          El campo Correo es obligatorio</p>
+      </div>
+
+      <div class="form-input myTelefono">
+        <input formControlName="cellphone" type="text" class="form-control" id="mobile" placeholder="Celular">
+        <label for="mobile"></label>
+        <p class="mensajeError" *ngIf="myForm.controls['cellphone'].errors && myForm.controls['cellphone'].touched">
+          El campo Celular es obligatorio</p>
+      </div>
+
+      <button type="submit" class="btn btn btn-primary mb-3">Actualizar</button>
+    </form>
+  </div>
+  <!-- <form>
     <div>
       <label for="">Usuario</label><br />
       <input type="text" name="name" [(ngModel)]="userProfile.userName" />
@@ -29,7 +75,7 @@
       <input type="text" name="celular" [(ngModel)]="userProfile.cellphone" />
     </div>
 
-    <!-- <div>
+     <div>
       <label for="">Contraseña</label><br />
       <input
         type="password"
@@ -37,7 +83,7 @@
         placeholder="Cambiar contraseña"
         [(ngModel)]="userProfile.password"
       />
-    </div> -->
+    </div>
     <div>
       <label for="">Nueva imagen</label><br />
       <input type="file" name="picture" (change)="onFileSelected($event)" />
@@ -45,5 +91,5 @@
     <br />
     <button (click)="updateProfile()"> Guardar cambios </button>
     <button (click)="cancelUpdate()"> Cancelar </button>
-  </form>
+  </form> -->
 </ng-template>

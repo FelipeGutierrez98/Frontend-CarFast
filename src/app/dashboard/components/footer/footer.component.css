@@ -75,7 +75,26 @@ footer {
 }
 .terminos{
     height: 30px;
-    background-color: #cacdd8;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
+}
+
+@media(max-width:965px) {
+    .footer-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-links{
+        text-align: center;
+    }
+}
+
+@media(max-width:500px) {
+    .footer-container{
+        grid-template-columns: 1fr;
+    }
+    .footer-links{
+        margin-top: 10px;
+    }
 }

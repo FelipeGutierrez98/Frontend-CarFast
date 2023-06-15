@@ -17,7 +17,7 @@
             <p class="form-titulo"></p>
 
             <div class="form-input myNombre">
-              <input type="text" formControlName="userName" class="form-control" id="myname" placeholder="Nombre">
+              <input type="text" formControlName="userName" class="form-control" id="myname"  placeholder="Nombre">
               <label for="myname"></label>
               <p class="mensajeError" *ngIf="myForm.controls['userName'].errors && myForm.controls['userName'].touched">
                 El campo Nombre es obligatorio</p>
@@ -69,12 +69,11 @@
               <input type="checkbox" class="form-check-input" id="termsAndConditions">
               <label for="termsAndConditions">He leído, entiendo y autorizo el tratamiento de mis datos personales de
                 acuerdo con la </label>
-              <a href="#">Política de Tratamiento de Datos de Carroya y su Política de Datos de Navegación/Cookies de
-                Carroya.com</a>
+              <a href="#">Política de Tratamiento de carfast y su Política de Datos de Navegación/Cookies </a>
               <p class="mensajeError"></p>
             </div>
 
-            <button type="submit " class="boton btn btn-outline-light">Enviar</button>
+            <button type="submit" class="btn btn btn-primary mb-3">Enviar</button>
           </form>
         </div>
     </div>
