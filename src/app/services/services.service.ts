@@ -5,6 +5,8 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root',
@@ -13,18 +15,23 @@ export class ServicesService {
   private userEmail!: string;
   private userData!: string;
   private ApiUrl = 'http://localhost:9000/api/users';
-  private CarUrl = 'http://localhost:9000/api/cars'
+  private CarUrl = 'http://localhost:9000/api/cars';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  helper = new JwtHelperService();
+  isUserLogged$ = new BehaviorSubject<string | null>(this.getToken());
+
+  constructor(private http: HttpClient, private router: Router) {
+    this.readToken();
+  }
 
   login(formData: any): void {
     const loginUrl = `${this.ApiUrl}/login`;
 
     this.http.post(loginUrl, formData).subscribe(
       (response: any) => {
-        console.log(response, 'THIS IS THE RESPONSE');
         this.saveToken(response.token);
         this.router.navigate(['']);
+        this.isUserLogged$.next(response.token);
         // this.authToken = response.accessToken;
         // this.saveToken(response.token);
         // this.userEmail = formData.email;
@@ -51,8 +58,18 @@ export class ServicesService {
     return localStorage.getItem('token');
   }
 
+  readToken(): any {
+    const token = this.getToken();
+
+    if (token) {
+      const { userName, email, id } = this.helper.decodeToken(token);
+
+      return { userName, email, id };
+    }
+    return null;
+  }
+
   create(formData: any): void {
-  
     console.log(formData, 'THIS IS FORMDATA');
 
     const createUrl = `${this.ApiUrl}`;
@@ -77,24 +94,20 @@ export class ServicesService {
     };
   }
 
-  getUser() {
-    const getUrl = `${this.ApiUrl}/${this.userEmail}`;
+  getUser(id: string | null) {
+    const getUrl = `${this.ApiUrl}/${id}`;
     return this.http.get(getUrl);
   }
 
   updateUser(body: any) {
-    const updateUrl = `${this.ApiUrl}/update/${body._id}`;
+    const updateUrl = `${this.ApiUrl}/${this.readToken().id}`;
     const fromData = body;
     console.log('usuario actualizado', fromData, updateUrl);
-    this.http.put(updateUrl, fromData).subscribe(
-      (response: any) => {
-        console.log('usuario actualizado. ', response);
-      },
-      (error) => {
-        console.log('Error: ', error);
-      }
-    );
+    return this.http.put(updateUrl, fromData, {
+      headers: this.getAuthHeaders(),
+    });
   }
+
   private getAuthHeaders(): HttpHeaders {
     const authToken = localStorage.getItem('token');
     const headers = new HttpHeaders({ Authorization: `Bearer ${authToken}` });

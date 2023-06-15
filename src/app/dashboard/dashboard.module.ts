@@ -28,7 +28,12 @@ import { BannerComponent } from './components/banner/banner.component';
     AboutComponent,
     BannerComponent,
   ],
-  imports: [CommonModule, DashboardRoutingModule,FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   exports: [CarsComponent, HeadersComponent, CarbyidComponent, FooterComponent],
 })
 export class DashboardModule {}
