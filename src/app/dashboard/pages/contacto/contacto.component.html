@@ -1,5 +1,32 @@
 <div class="contacto">
   <div class="formulario-contacto">
+    <h1>¿Necesitas ayuda?</h1>
+    <h3>Déjanos tus datos y tu mensaje y nos contactaremos contigo</h3>
+    <form (submit)="enviarFormulario()">
+      <div>
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="" [(ngModel)]="nombre">
+      </div>
+      <div>
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="" [(ngModel)]="email">
+      </div>
+      <div>
+        <label for="asunto" class="form-label">Asunto</label>
+        <input type="text" class="form-control" id="asunto" placeholder="" [(ngModel)]="asunto">
+      </div>
+      <div class="mb-3">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <textarea class="form-control" id="mensaje" rows="3" [(ngModel)]="mensaje"></textarea>
+      </div>
+      <button type="submit" class="btn btn-light">Enviar</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- <div class="contacto">
+  <div class="formulario-contacto">
       <h1>¿Necesitas ayuda?</h1>
       <h3>Déjanos tus datos y tu mensaje y nos contactarémos contigo</h3>
     <div>
@@ -20,4 +47,4 @@
     </div>
     <button type="submit" class="btn btn-light ">Enviar</button>
   </div>
-</div>
+</div> -->
