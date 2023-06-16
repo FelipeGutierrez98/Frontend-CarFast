@@ -3,31 +3,32 @@
     <div class="row">
       <!--seccion MENU/LOGO/FORM 4 PARTES-->
       <div class="col-sm-4" class="container">
-        
-          <div class="logo">
-            <img src="../../../../assets/img/logo_2_Mesa_de_trabajo_1.png" class= "img-fluid ">
-          </div>
-        
+
+        <div class="logo">
+          <img src="../../../../assets/img/logo_2_Mesa_de_trabajo_1.png" class="img-fluid ">
+        </div>
+
         <div class="bienvenido">
           <h1>Entra</h1>
         </div>
-  
+
         <div class="cont-form">
           <form [formGroup]="myForm" action="" class="form" id="form" autocomplete="off" (ngSubmit)="login()"
             #loginForm="ngForm">
             <p class="form-titulo"></p>
-            <div class="form-input myEmail">
-              <input formControlName="email" type="email" class="form-control" id="email"
-                placeholder="Correo electrónico">
-              <label for="email"></label>
+            <div class="form-input myEmail container-input">
+              <input formControlName="email" type="email"
+                [ngClass]="{'inputError': myForm.controls['email'].errors && myForm.controls['email'].touched}"
+                class="form-control" id="email" placeholder="Correo electrónico">
               <p class="mensajeError" *ngIf="myForm.controls['email'].errors && myForm.controls['email'].touched">El
                 campo email es requerido</p>
             </div>
-            <div class="form-input myPassword">
-              <input formControlName="password" type="password" class="form-control" id="password"
+            <div class="form-input myPassword container-input">
+              <input formControlName="password" type="password" class="form-control " id="password"
                 placeholder="Contraseña">
-              <label for="password"></label>
-              <p class="mensajeError"></p>
+              <p class="mensajeError" *ngIf="myForm.controls['password'].errors && myForm.controls['password'].touched">
+                El
+                campo password es requerido</p>
             </div>
             <button type="submit" class="btn btn btn-primary mb-3">
               Entrar
@@ -42,25 +43,25 @@
           <div class="secc-botones">
             <button type="icon" class="btn btn-lg ">
               <a href="https://www.google.com/"><i class="bi bi-google" alt="google"></i></a>
-  
+
             </button>
-  
+
             <button type="icon" class="btn btn-lg "><a href="https://www.facebook.com/">
                 <i class="bi bi-facebook"></i></a>
             </button>
             <button type="icon" class="btn btn-lg "><a href="https://www.facebook.com/">
                 <i class="bi bi-google" alt="google"></i></a>
             </button>
-  
-  
+
+
           </div>
         </div>
       </div>
     </div>
-  
+
     <div class="texto-foot">
       <p>© 2017 - 2023 car-fast.com. All rights reserved
       </p>
     </div>
   </div>
-  </div>
+</div>

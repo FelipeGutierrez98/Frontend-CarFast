@@ -6,6 +6,8 @@ import { CreateComponent } from './user/create/create.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { ClienteNoRegistradoComponent } from './user/cliente-no-registrado/cliente-no-registrado.component';
 import { Notfound404Component } from '../dashboard/pages/notfound404/notfound404.component';
+import { authGuard } from '../guards/auth.guard';
+import { loggedGuard } from '../guards/logged.guard';
 UserComponent;
 
 const routes: Routes = [
@@ -13,13 +15,26 @@ const routes: Routes = [
     path: '',
     component: UserComponent,
     children: [
-      { path: 'ingresar', component: LoginComponent },
-      { path: 'registrarse', component: CreateComponent },
+      {
+        path: 'ingresar',
+        canActivate: [loggedGuard],
+        component: LoginComponent,
+      },
+      {
+        path: 'registrarse',
+        canActivate: [loggedGuard],
+        component: CreateComponent,
+      },
       {
         path: 'cliente-no-registrado',
+        canActivate: [loggedGuard],
         component: ClienteNoRegistradoComponent,
       },
-      { path: 'perfil', component: ProfileComponent },
+      {
+        path: 'perfil',
+        canActivate: [authGuard],
+        component: ProfileComponent,
+      },
       { path: '', redirectTo: 'ingresar', pathMatch: 'full' },
       { path: '**', component: Notfound404Component },
     ],

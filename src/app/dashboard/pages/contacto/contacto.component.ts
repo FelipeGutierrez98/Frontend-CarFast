@@ -1,35 +1,35 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ServicesService } from 'src/app/services/services.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
-  styleUrls: ['./contacto.component.css']
+  styleUrls: ['./contacto.component.css'],
 })
 export class ContactoComponent {
-  nombre!: string;
-  email!: string;
-  asunto!: string;
-  mensaje!: string;
+  contactForm!: FormGroup;
+  enviando!: boolean;
 
-  constructor(private http: HttpClient) {}
+  constructor(private fb: FormBuilder, private service: ServicesService) {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      message: ['', Validators.required],
+      subject: ['', Validators.required],
+    });
+  }
 
   enviarFormulario() {
-    const formData = {
-      nombre: this.nombre,
-      email: this.email,
-      asunto: this.asunto,
-      mensaje: this.mensaje
-    };
-
-    this.http.post('/enviar-correo', formData)
-      .subscribe(
-        () => {
-          console.log('Correo enviado');
-        },
-        error => {
-          console.error('Error al enviar el correo', error);
-        }
-      );
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched();
+      return;
+    }
+    this.enviando = true;
+    this.service.contactFromUser(this.contactForm.value).subscribe(() => {
+      Swal.fire('Correo enviado', 'Pronto un asesor de contactará', 'success');
+      this.enviando = false;
+    });
   }
 }

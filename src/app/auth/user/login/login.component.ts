@@ -29,7 +29,7 @@ export class LoginComponent {
     }
     this.servicesServices.login(this.myForm.value);
     console.log(this.myForm.value);
-    localStorage.setItem('email', this.myForm.value.email)
+    localStorage.setItem('email', this.myForm.value.email);
     this.myForm.reset();
   }
 }

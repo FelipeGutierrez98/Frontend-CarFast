@@ -1,8 +1,8 @@
 <div class="container text-center principal">
   <div class="logo class= text-center">
     <img src="../../../../assets/img/5158652.png" class="img-fluid ">
-</div>
-  <div *ngIf="!editValue; else editInfo" >
+  </div>
+  <div *ngIf="!editValue; else editInfo">
     <ul>
       <ng-container *ngIf="userProfile">
         <li class="card-text">Nombre: {{ userProfile.userName }}&nbsp;{{userProfile.lastname}} </li>
@@ -12,6 +12,9 @@
     </ul>
     <br />
     <button type="submit" class="btn btn btn-primary mb-3" (click)="editProfile()">Editar perfil</button>
+    <div>
+      <button type="button" class="btn btn btn-danger mb-3" (click)="deleteProfile()">Borrar perfil</button>
+    </div>
   </div>
 </div>
 
@@ -50,8 +53,8 @@
         <p class="mensajeError" *ngIf="myForm.controls['cellphone'].errors && myForm.controls['cellphone'].touched">
           El campo Celular es obligatorio</p>
       </div>
-
-      <button type="submit" class="btn btn btn-primary mb-3">Actualizar</button>
+      <button type="submit" class="btn btn-primary mb-3 mx-3">Actualizar</button>
+      <button type="button" class="btn btn-outline-danger mb-3 mx-3" (click)="cancelar()">Cancelar</button>
     </form>
   </div>
   <!-- <form>

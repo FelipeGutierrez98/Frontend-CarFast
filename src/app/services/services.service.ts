@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,12 @@ export class ServicesService {
     this.readToken();
   }
 
+  private getAuthHeaders(): HttpHeaders {
+    const authToken = localStorage.getItem('token');
+    const headers = new HttpHeaders({ Authorization: `Bearer ${authToken}` });
+    return headers;
+  }
+
   login(formData: any): void {
     const loginUrl = `${this.ApiUrl}/login`;
 
@@ -32,9 +39,6 @@ export class ServicesService {
         this.saveToken(response.token);
         this.router.navigate(['']);
         this.isUserLogged$.next(response.token);
-        // this.authToken = response.accessToken;
-        // this.saveToken(response.token);
-        // this.userEmail = formData.email;
       },
       (error) => {
         if (error instanceof HttpErrorResponse) {
@@ -76,7 +80,8 @@ export class ServicesService {
 
     this.http.post(createUrl, formData).subscribe(
       (response: any) => {
-        console.log('Registro exitoso. ', response);
+        this.router.navigate(['/auth/ingresar']);
+        Swal.fire('Felicitaciones', 'Registro exitoso', 'success');
       },
       (error) => {
         console.log('Error: ', error);
@@ -84,35 +89,29 @@ export class ServicesService {
     );
   }
 
-  updateInventado() {
-    return {
-      userName: 'tester',
-      lastname: 'uno',
-      cellphone: '1234',
-      email: 'tester@uno.com',
-      password: '123',
-    };
-  }
-
-  getUser(id: string | null) {
-    const getUrl = `${this.ApiUrl}/${id}`;
-    return this.http.get(getUrl);
+  getUser() {
+    const getUrl = `${this.ApiUrl}/get`;
+    return this.http.get(getUrl, { headers: this.getAuthHeaders() });
   }
 
   updateUser(body: any) {
-    const updateUrl = `${this.ApiUrl}/${this.readToken().id}`;
+    const updateUrl = `${this.ApiUrl}/update`;
     const fromData = body;
-    console.log('usuario actualizado', fromData, updateUrl);
     return this.http.put(updateUrl, fromData, {
       headers: this.getAuthHeaders(),
     });
   }
 
-  private getAuthHeaders(): HttpHeaders {
-    const authToken = localStorage.getItem('token');
-    const headers = new HttpHeaders({ Authorization: `Bearer ${authToken}` });
-    return headers;
+  deleteUser() {
+    const getUrl = `${this.ApiUrl}/delete`;
+    return this.http.delete(getUrl, { headers: this.getAuthHeaders() });
   }
+
+  contactFromUser(formData: any) {
+    const getUrl = `${this.ApiUrl}/contact`;
+    return this.http.post(getUrl, formData);
+  }
+
   //-----------------------------------------------------------//
 
   createCar(formData: any): void {

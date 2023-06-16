@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ServicesService } from 'src/app/services/services.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-profile',
@@ -13,12 +15,14 @@ export class ProfileComponent {
   userProfile!: any;
 
   editValue: boolean = false;
+  showChangePassword: boolean = false;
   email = localStorage.getItem('email');
   idUser!: string;
 
   constructor(
     private servicesServices: ServicesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     // this.servicesServices.getUser(this.servicesServices.getToken()).subscribe();
     this.myForm = this.fb.group({
@@ -42,9 +46,7 @@ export class ProfileComponent {
 
   getUser() {
     // movimos la funcionalidad
-    this.idUser = this.servicesServices.readToken().id;
-
-    this.servicesServices.getUser(this.idUser).subscribe(
+    this.servicesServices.getUser().subscribe(
       (response: any) => {
         console.log('response: ', response);
         this.userProfile = response;
@@ -65,6 +67,12 @@ export class ProfileComponent {
   }
 
   updateProfile() {
+    if (this.myForm.invalid) {
+      console.log(this.myForm.value);
+
+      this.myForm.markAllAsTouched();
+      return;
+    }
     this.servicesServices.updateUser(this.myForm.value).subscribe(
       (response: any) => {
         console.log('usuario actualizado. ', response);
@@ -74,5 +82,30 @@ export class ProfileComponent {
         console.log('Error: ', error);
       }
     );
+  }
+
+  deleteProfile() {
+    Swal.fire({
+      title: '¿Seguro quiere eliminar la cuenta?',
+      text: 'Una vez eliminada, no podrá recuperarla',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.servicesServices.deleteUser().subscribe((res) => {
+          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          localStorage.clear();
+          this.router.navigate(['/auth/registrarse']);
+        });
+      }
+    });
+  }
+
+  cancelar() {
+    this.editValue = false;
   }
 }
