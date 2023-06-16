@@ -42,8 +42,7 @@
 
 
 
- 
- <div class="carbyId">
+  <div class="carbyId">
     <div class="container card">
 
       <div class="img">
@@ -51,10 +50,10 @@
       </div>
 
       <div class="txt-cont">
-        <p class="año">20XX</p>
-        <h1 class="marca">Lamborghini</h1>
-        <h3 class="model">Gallardo</h3>
-        <p class="precio">$ X'000.000</p>
+        <p class="año">{{carCargado.age}}</p>
+        <h1 class="marca">{{carCargado.marca | uppercase}}</h1>
+        <h3 class="model">{{carCargado.modelo | uppercase}}</h3>
+        <p class="precio">{{carCargado.precio | currency}}</p>
       </div>
 
       <div class="comprar">
@@ -63,22 +62,23 @@
 
           <tr>
             <td class="subtit">Kilometraje</td>
-            <td class="val"> 9.500</td>
+            <td class="val"> {{carCargado.kilometraje}}</td>
           </tr>
 
           <tr>
             <td class="subtit">Transmisión</td>
-            <td class="val">Mecánico</td>
+            <td class="val">{{carCargado.transmision}}</td>
           </tr>
             
           <td class="subtit"><i class="bi bi-pin-map"></i></td>
           
-          <p class="val">Popayán</p>
+          <p class="val">{{carCargado.ciudad }}</p>
   
 
         </div>
 
         <div class="contacto">
+
           <h2>Contacta al vendedor ?</h2>
           <form class="row g-3">
             <div class="col-auto">

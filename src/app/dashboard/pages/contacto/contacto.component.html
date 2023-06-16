@@ -4,16 +4,29 @@
     <h3>Déjanos tus datos y tu mensaje y nos contactaremos contigo</h3>
     <form [formGroup]="contactForm" (submit)="enviarFormulario()">
       <div>
-        <label for="nombre" class="form-label">Nombre</label>
-        <input type="text" formControlName="name" class="form-control" id="nombre">
+        <label for="nombre" class="form-label">Nombre</label  >
+        <input type="text" formControlName="name"
+        [ngClass]="{'inputError': contactForm.controls['name'].errors && contactForm.controls['name'].touched}"
+        class="form-control" id="nombre">
+        <p class="mensajeError" *ngIf="contactForm.controls['name'].errors && contactForm.controls['name'].touched">
+          El campo Nombre es obligatorio</p>
       </div>
       <div>
         <label for="email" class="form-label">Email</label>
-        <input type="email" class="form-control" formControlName="email" id="email">
+        <input type="email" class="form-control"
+        [ngClass]="{'inputError': contactForm.controls['email'].errors && contactForm.controls['email'].touched}"
+        formControlName="email" id="email">
+
+        <p class="mensajeError" *ngIf="contactForm.controls['email'].errors && contactForm.controls['email'].touched">
+          El campo Nombre es obligatorio</p>
       </div>
       <div>
         <label for="asunto" class="form-label">Asunto</label>
-        <input type="text" formControlName="subject" class="form-control" id="asunto">
+        <input type="text" formControlName="subject" 
+        [ngClass]="{'inputError': contactForm.controls['subject'].errors && contactForm.controls['subject'].touched}"
+        class="form-control" id="asunto">
+        <p class="mensajeError" *ngIf="contactForm.controls['subject'].errors && contactForm.controls['subject'].touched">
+          El campo Nombre es obligatorio</p>
       </div>
       <div class="mb-3">
         <label for="mensaje" class="form-label">Mensaje</label>
@@ -23,3 +36,4 @@
     </form>
   </div>
 </div>
+

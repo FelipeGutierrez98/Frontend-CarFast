@@ -24,7 +24,9 @@
                 campo email es requerido</p>
             </div>
             <div class="form-input myPassword container-input">
-              <input formControlName="password" type="password" class="form-control " id="password"
+              <input formControlName="password" type="password"
+              [ngClass]="{'inputError': myForm.controls['password'].errors && myForm.controls['password'].touched}"
+              class="form-control " id="password"
                 placeholder="Contraseña">
               <p class="mensajeError" *ngIf="myForm.controls['password'].errors && myForm.controls['password'].touched">
                 El
@@ -38,7 +40,7 @@
         </div>
       </div>
       <div class="alt-login">
-        <h2> Iniciar sesion con:</h2>
+        <h2 > Iniciar sesion con:</h2>
         <div>
           <div class="secc-botones">
             <button type="icon" class="btn btn-lg ">
